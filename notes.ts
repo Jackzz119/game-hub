@@ -5,3 +5,5 @@
 
 // 创建github远程rep
 // git init
+// git add .
+// git commit -m ""
