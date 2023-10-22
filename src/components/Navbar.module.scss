@@ -1,0 +1,15 @@
+.navbar {
+  padding: 7px 10px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  background-color: #121212;
+  transition: 0.4s ease;
+}
+
+.navbarActive {
+  box-shadow: rgba(192, 192, 192, 0.3) 0 7px 20px;
+  padding: 1px 10px;
+}
