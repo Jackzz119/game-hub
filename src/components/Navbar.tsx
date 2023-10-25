@@ -47,7 +47,7 @@ const Navbar = () => {
         <HStack spacing="2">
           <Image src={coldGame} boxSize="60px" />
           <Text fontSize="xl" color="inherit" isTruncated>
-            JSPlayer1
+            JSverse
           </Text>
         </HStack>
         <Spacer />

@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Button } from "@chakra-ui/react";
 
 interface Props {
   options: any;
@@ -38,11 +38,35 @@ const VideoPlayer = ({ options, onReady }: Props) => {
   }, [options, videoRef]);
 
   return (
-    <Box height="auto" width="100%">
-      <Flex justifyContent="center" data-vjs-player marginY={10}>
-        <Box ref={videoRef} />
-      </Flex>
-    </Box>
+    <>
+      <Box position="relative">
+        <Flex
+          justifyContent="center"
+          data-vjs-player
+          marginY={10}
+          position="absolute"
+          inset="0px"
+          left="20%"
+          right="20%"
+          margin="1.5%"
+        >
+          <div ref={videoRef} />
+
+          <Button
+            marginY={6}
+            size="md"
+            height="48px"
+            width="200px"
+            border="2px"
+            borderColor="red.500"
+            transform={"translateY(700px)"}
+            borderRadius={15}
+          >
+            Play
+          </Button>
+        </Flex>
+      </Box>
+    </>
   );
 };
 
