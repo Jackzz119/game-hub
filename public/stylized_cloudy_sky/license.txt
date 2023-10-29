@@ -1,0 +1,8 @@
+Model Information:
+* title:	Stylized Cloudy Sky
+* source:	https://sketchfab.com/3d-models/stylized-cloudy-sky-f8c411fd56bb46cfb9465f11e8df7729
+* author:	skybox (https://sketchfab.com/skybox_)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

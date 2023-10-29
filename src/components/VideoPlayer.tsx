@@ -1,7 +1,8 @@
 import { useRef, useEffect } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import { Box, Flex, Button } from "@chakra-ui/react";
+import { Box, Flex, Button, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 interface Props {
   options: any;
@@ -52,18 +53,28 @@ const VideoPlayer = ({ options, onReady }: Props) => {
         >
           <div ref={videoRef} />
 
-          <Button
-            marginY={6}
-            size="md"
-            height="48px"
-            width="200px"
-            border="2px"
-            borderColor="red.500"
-            transform={"translateY(700px)"}
-            borderRadius={15}
-          >
-            Play
-          </Button>
+          <LinkBox as="div">
+            <LinkOverlay
+              as={Link}
+              to="/game101"
+              style={{
+                color: "inherit",
+              }}
+            >
+              <Button
+                marginY={6}
+                size="md"
+                height="48px"
+                width="200px"
+                border="2px"
+                borderColor="red.500"
+                transform={"translateY(700px)"}
+                borderRadius={15}
+              >
+                Play
+              </Button>
+            </LinkOverlay>
+          </LinkBox>
         </Flex>
       </Box>
     </>

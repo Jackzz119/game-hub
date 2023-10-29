@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import GameCollection from "./pages/GameCollection";
 import Navbar from "./components/Navbar";
+import Index from "./pages/game/Index";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         element: <GameCollection />,
       },
     ],
+  },
+  {
+    path: "/game101",
+    element: <Index />,
   },
 ]);
 
