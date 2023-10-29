@@ -9,7 +9,7 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
-import ThreeCube from "./3d-object/ThreeCube";
+// import ThreeCube from "./3d-object/ThreeCube";
 // import demoObject from './3d-object/demo'
 
 const Head = () => {
@@ -31,7 +31,7 @@ const Head = () => {
         </GridItem>
 
         <GridItem rowSpan={2} colSpan={3}>
-          <ThreeCube />
+          {/* <ThreeCube /> */}
         </GridItem>
 
         <GridItem rowSpan={1} colSpan={2}>
