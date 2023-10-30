@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { addEffect } from "@react-three/fiber";
 import { LinkBox, LinkOverlay, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { kv } from "@vercel/kv";
+import { kv, createClient } from "@vercel/kv";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default function Interface() {
@@ -27,15 +27,27 @@ export default function Interface() {
     // ZRANGE scoreboard 0 0
     console.log(process.env.KV_REST_API_URL);
     console.log(process.env.VERCEL_ENV);
+
+    const customKvClient = createClient({
+      url: "https://comic-opossum-42727.kv.vercel-storage.com",
+      token:
+        "AabnASQgZjAwYzZmZGUtNjBiMC00ODk4LTkwNjUtYjc1MDk0NjI5ZmU1YjEzN2E1ODVkNDMwNDFmYWExOWYyN2E5YzQ0NmQxOTg=",
+      automaticDeserialization: false,
+    });
+
     const highestScore = await kv.zrange("scoreboard", 0, 0, {
       withScores: true,
     });
+    console.log(highestScore);
 
     // get the stat that what percentage you won
     // ZCOUNT scoreboard 25 +inf
     // ZCARD scoreboard
     const slowerCount = await kv.zcount("scoreboard", 25, "+inf");
     const totalCount = await kv.zcard("scoreboard");
+    console.log(slowerCount);
+    console.log(totalCount);
+
     return { highest: highestScore, percentage: slowerCount / totalCount };
   }
 
