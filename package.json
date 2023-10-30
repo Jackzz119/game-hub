@@ -17,6 +17,7 @@
     "@react-three/fiber": "^8.15.8",
     "@react-three/postprocessing": "^2.15.8",
     "@react-three/rapier": "^1.1.2",
+    "@vercel/kv": "^0.2.3",
     "axios": "^1.5.1",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
@@ -26,6 +27,7 @@
     "sass": "^1.69.4",
     "scss": "^0.2.4",
     "three": "^0.157.0",
+    "vercel": "^32.5.0",
     "zustand": "^4.4.4"
   },
   "devDependencies": {
