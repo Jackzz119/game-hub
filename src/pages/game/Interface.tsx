@@ -35,7 +35,7 @@ export default function Interface() {
       automaticDeserialization: false,
     });
 
-    const highestScore = await kv.zrange("scoreboard", 0, 0, {
+    const highestScore = await customKvClient.zrange("scoreboard", 0, 0, {
       withScores: true,
     });
     console.log(highestScore);
@@ -43,8 +43,8 @@ export default function Interface() {
     // get the stat that what percentage you won
     // ZCOUNT scoreboard 25 +inf
     // ZCARD scoreboard
-    const slowerCount = await kv.zcount("scoreboard", 25, "+inf");
-    const totalCount = await kv.zcard("scoreboard");
+    const slowerCount = await customKvClient.zcount("scoreboard", 25, "+inf");
+    const totalCount = await customKvClient.zcard("scoreboard");
     console.log(slowerCount);
     console.log(totalCount);
 
