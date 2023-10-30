@@ -44,15 +44,14 @@ export default function Interface() {
       let elapsedTime: number = 0;
 
       if (state.phase === "playing") elapsedTime = Date.now() - state.startTime;
-      else if (state.phase === "ended")
+      else if (state.phase === "ended") {
         elapsedTime = state.endTime - state.startTime;
-      const timeRecord = (elapsedTime / 1000).toFixed(2);
+        const timeRecord = (elapsedTime / 1000).toFixed(2);
 
-      const response = await updateScore(Number(timeRecord));
-      setPercentage(response.percentage);
-      setHighRecord(response.highest);
-
-      // elapsedTime = Number(elapsedTime.toFixed(2));
+        const response = await updateScore(Number(timeRecord));
+        setPercentage(response.percentage);
+        setHighRecord(response.highest);
+      }
 
       elapsedTime /= 1000;
       elapsedTime = Number(elapsedTime.toFixed(2));
