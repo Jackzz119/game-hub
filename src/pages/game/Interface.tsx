@@ -25,8 +25,8 @@ export default function Interface() {
   async function updateScore(timeRecord: Number) {
     // get the highest score, which is the shortest time record
     // ZRANGE scoreboard 0 0
-    console.log(process.env.KV_REST_API_URL);
-    console.log(process.env.VERCEL_ENV);
+    // console.log(process.env.KV_REST_API_URL);
+    // console.log(process.env.VERCEL_ENV);
 
     const customKvClient = createClient({
       url: "https://comic-opossum-42727.kv.vercel-storage.com",
