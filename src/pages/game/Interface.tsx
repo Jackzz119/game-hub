@@ -1,11 +1,11 @@
 import { useKeyboardControls } from "@react-three/drei";
 import useGame from "./stores/useGame.jsx";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { addEffect } from "@react-three/fiber";
-import { LinkBox, LinkOverlay, Text } from "@chakra-ui/react";
+import { LinkBox, LinkOverlay } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { kv, createClient } from "@vercel/kv";
-import type { VercelRequest, VercelResponse } from "@vercel/node";
+// import { kv, createClient } from "@vercel/kv";
+// import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default function Interface() {
   const time = useRef<HTMLDivElement | null>(null);
@@ -19,37 +19,36 @@ export default function Interface() {
   const rightward = useKeyboardControls((state) => state.rightward);
   const jump = useKeyboardControls((state) => state.jump);
 
-  const [highRecord, setHighRecord] = useState(null);
-  const [percentage, setPercentage] = useState(null);
+  // const [highRecord, setHighRecord] = useState(null);
+  // const [percentage, setPercentage] = useState(null);
 
-  async function updateScore(timeRecord: Number) {
-    // get the highest score, which is the shortest time record
-    // ZRANGE scoreboard 0 0
-    // console.log(process.env.KV_REST_API_URL);
-    // console.log(process.env.VERCEL_ENV);
+  // async function updateScore(timeRecord: Number) {
+  // get the highest score, which is the shortest time record
+  // ZRANGE scoreboard 0 0
 
-    const customKvClient = createClient({
-      url: "https://comic-opossum-42727.kv.vercel-storage.com",
-      token:
-        "AabnASQgZjAwYzZmZGUtNjBiMC00ODk4LTkwNjUtYjc1MDk0NjI5ZmU1YjEzN2E1ODVkNDMwNDFmYWExOWYyN2E5YzQ0NmQxOTg=",
-      automaticDeserialization: false,
-    });
+  //   const customKvClient = createClient({
+  //     url: process.env.REACT_APP_KV_REST_API_URL,
+  //     token: process.env.REACT_APP_KV_REST_API_TOKEN,
+  //     automaticDeserialization: false,
+  //   });
+  //   console.log(process.env.REACT_APP_KV_REST_API_URL);
+  //   console.log(process.env.REACT_APP_KV_REST_API_TOKEN);
 
-    const highestScore = await customKvClient.zrange("scoreboard", 0, 0, {
-      withScores: true,
-    });
-    console.log(highestScore);
+  //   const highestScore = await customKvClient.zrange("scoreboard", 0, 0, {
+  //     withScores: true,
+  //   });
+  //   console.log(highestScore);
 
-    // get the stat that what percentage you won
-    // ZCOUNT scoreboard 25 +inf
-    // ZCARD scoreboard
-    const slowerCount = await customKvClient.zcount("scoreboard", 25, "+inf");
-    const totalCount = await customKvClient.zcard("scoreboard");
-    console.log(slowerCount);
-    console.log(totalCount);
+  //   // get the stat that what percentage you won
+  //   // ZCOUNT scoreboard 25 +inf
+  //   // ZCARD scoreboard
+  //   const slowerCount = await customKvClient.zcount("scoreboard", 25, "+inf");
+  //   const totalCount = await customKvClient.zcard("scoreboard");
+  //   console.log(slowerCount);
+  //   console.log(totalCount);
 
-    return { highest: highestScore, percentage: slowerCount / totalCount };
-  }
+  //   return { highest: highestScore, percentage: slowerCount / totalCount };
+  // }
 
   useEffect(() => {
     const unsubscribeEffect = addEffect(async () => {
@@ -60,11 +59,11 @@ export default function Interface() {
       if (state.phase === "playing") elapsedTime = Date.now() - state.startTime;
       else if (state.phase === "ended") {
         elapsedTime = state.endTime - state.startTime;
-        const timeRecord = (elapsedTime / 1000).toFixed(2);
+        // const timeRecord = (elapsedTime / 1000).toFixed(2);
 
-        const response = await updateScore(Number(timeRecord));
-        setPercentage(response.percentage);
-        setHighRecord(response.highest);
+        // const response = await updateScore(Number(timeRecord));
+        // setPercentage(response.percentage);
+        // setHighRecord(response.highest);
       }
 
       elapsedTime /= 1000;
@@ -83,12 +82,12 @@ export default function Interface() {
       {/* links */}
       <div className="links">
         <LinkBox as="div">
-          <LinkOverlay as={Link} to="/h">
+          <LinkOverlay as={Link} to="/">
             <div className="homepage">Home</div>
           </LinkOverlay>
         </LinkBox>
         <LinkBox as="div" marginTop={2}>
-          <LinkOverlay as={Link} to="/">
+          <LinkOverlay as={Link} to="/collection">
             <div className="collection">Collection</div>
           </LinkOverlay>
         </LinkBox>
@@ -105,10 +104,10 @@ export default function Interface() {
           <div className="restart" onClick={restart}>
             Restart
           </div>
-          <div className="win">
+          {/*<div className="win">
             <Text textAlign="center">The hightest record is {highRecord}</Text>
             <Text textAlign="center">You have won {percentage} %</Text>
-          </div>
+      </div>*/}
         </div>
       )}
 

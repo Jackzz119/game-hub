@@ -1,5 +1,5 @@
 import React from "react";
-import { css, keyframes } from "@emotion/react";
+import { css } from "@emotion/react";
 import styled from "@emotion/styled"; // 或者从 '@emotion/styled' 导入
 import gameVideo1 from "../assets/gameVideo1.mp4";
 import gameVideo2 from "../assets/gameVideo2.mp4";

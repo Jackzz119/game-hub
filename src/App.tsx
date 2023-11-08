@@ -11,11 +11,11 @@ const router = createBrowserRouter([
     children: [
       {
         // click to path, need <Link>
-        path: "/h",
+        path: "/",
         element: <HomePage />,
       },
       {
-        path: "/",
+        path: "/collection",
         element: <GameCollection />,
       },
     ],

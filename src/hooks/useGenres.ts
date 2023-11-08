@@ -1,4 +1,4 @@
-import genres from '../data/genres'
+import genres from "../data/genres";
 
 export interface Genre {
   id: number;
@@ -6,8 +6,6 @@ export interface Genre {
   image_background: string;
 }
 
-// what is query parameters?
-
-const useGenres = () => ({data: genres, isLoading: false, error: null});
+const useGenres = () => ({ data: genres, isLoading: false, error: null });
 
 export default useGenres;

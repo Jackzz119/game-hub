@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import * as THREE from "three";
-// import { THREEOrbitControls } from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-const ThreeCube: React.FC = () => {
+const ThreeCube = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -31,8 +31,8 @@ const ThreeCube: React.FC = () => {
       renderer.setSize(width, height);
       containerRef.current.appendChild(renderer.domElement);
 
-      // const controls = new OrbitControls(camera, renderer.domElement);
-      // controls.enableZoom = false;
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableZoom = false;
 
       const animate = () => {
         requestAnimationFrame(animate);
@@ -46,7 +46,7 @@ const ThreeCube: React.FC = () => {
       animate();
 
       return () => {
-        // controls.dispose();
+        controls.dispose();
         renderer.dispose();
       };
     }

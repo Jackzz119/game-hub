@@ -1,18 +1,21 @@
 import {
   Box,
   Button,
-  Center,
-  Flex,
   Grid,
   GridItem,
   HStack,
-  Image,
+  LinkBox,
+  LinkOverlay,
   Text,
 } from "@chakra-ui/react";
-// import ThreeCube from "./3d-object/ThreeCube";
-// import demoObject from './3d-object/demo'
+import ThreeCube from "./3d-object/ThreeCube";
+import { Link } from "react-router-dom";
 
-const Head = () => {
+interface Props {
+  onButtonClick: () => void;
+}
+
+const Head = ({ onButtonClick }: Props) => {
   return (
     <Box>
       <Grid
@@ -31,19 +34,32 @@ const Head = () => {
         </GridItem>
 
         <GridItem rowSpan={2} colSpan={3}>
-          {/* <ThreeCube /> */}
+          <ThreeCube />
         </GridItem>
 
         <GridItem rowSpan={1} colSpan={2}>
-          <Text fontSize="xl" letterSpacing={1}>
+          <Text fontSize="xl" letterSpacing={1} marginTop={-6}>
             Dive into my world of JS games, where creativity meets logic, and
             every line of code tells a story. Join me on a coding adventure,
             explore pixelated realms, conquer coding challenges, and together,
             let's bring our gaming imaginations to life.
           </Text>
-          <HStack marginY={15}>
-            <Button>Play now</Button>
-            <Button marginLeft={15}>Learn more</Button>
+          <HStack marginY="25px">
+            <LinkBox as="div">
+              <LinkOverlay as={Link} to="/game101">
+                <Button letterSpacing={0.8} fontSize="xl">
+                  Play now
+                </Button>
+              </LinkOverlay>
+            </LinkBox>
+            <Button
+              marginLeft={15}
+              onClick={onButtonClick}
+              letterSpacing={0.8}
+              fontSize="xl"
+            >
+              Learn more
+            </Button>
           </HStack>
         </GridItem>
       </Grid>

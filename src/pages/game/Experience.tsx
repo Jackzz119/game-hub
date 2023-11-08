@@ -3,7 +3,7 @@ import useGame from "./stores/useGame";
 import Lights from "./Lights";
 import { Level } from "./Level";
 import Player from "./Player";
-import { Environment, useGLTF } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 
 export default function Experience() {
   const blocksCount = useGame((state) => state.blocksCount);

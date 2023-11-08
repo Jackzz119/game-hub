@@ -76,7 +76,7 @@ export function BlockEnd({ position = vec3({ x: 0, y: 0, z: 0 }) }) {
   );
 }
 
-export function BlockSpinner({ position = vec3({ x: 0, y: 0, z: 0 }) }) {
+export function BlockSpinner({ position = vec3({ x: 0, y: 0, z: 0 }) }: any) {
   const obstacle = useRef<any>(null);
   const [speed] = useState(
     () => (Math.random() + 0.2) * (Math.random() < 0.5 ? -1 : 1)
@@ -118,7 +118,7 @@ export function BlockSpinner({ position = vec3({ x: 0, y: 0, z: 0 }) }) {
   );
 }
 
-export function BlockLimbo({ position = vec3({ x: 0, y: 0, z: 0 }) }) {
+export function BlockLimbo({ position = vec3({ x: 0, y: 0, z: 0 }) }: any) {
   const obstacle = useRef<any>(null);
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
 
@@ -161,7 +161,7 @@ export function BlockLimbo({ position = vec3({ x: 0, y: 0, z: 0 }) }) {
   );
 }
 
-export function BlockAxe({ position = vec3({ x: 0, y: 0, z: 0 }) }) {
+export function BlockAxe({ position = vec3({ x: 0, y: 0, z: 0 }) }: any) {
   const obstacle = useRef<any>(null);
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
 

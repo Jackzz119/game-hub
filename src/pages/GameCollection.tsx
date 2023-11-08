@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 // import GameGrid from "../components/GameGrid";
 import GenreList from "../components/GenreList";
-import { Genre } from "../hooks/useGenres";
-import { Platform } from "../hooks/useGames";
+// import { Genre } from "../hooks/useGenres";
+// import { Platform } from "../hooks/useGames";
 
 // export interface GameQuery {
 //   genre: Genre | null;
@@ -27,10 +26,10 @@ const GameCollection = () => {
     >
       <Show above="lg">
         <GridItem area="aside" paddingX={4}>
-          {/* <GenreList
-            selectedGenre={gameQuery.genre}
-            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
-          /> */}
+          <GenreList
+          // selectedGenre={gameQuery.genre}
+          // onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+          />
         </GridItem>
       </Show>
       <GridItem area="main">

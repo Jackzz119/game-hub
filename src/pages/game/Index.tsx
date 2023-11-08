@@ -3,10 +3,8 @@ import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience.jsx";
 import { KeyboardControls } from "@react-three/drei";
 import Interface from "./Interface.jsx";
-import { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
 import "./style.css";
-import Skybox from "./Skybox.tsx";
 
 const Index = () => {
   return (

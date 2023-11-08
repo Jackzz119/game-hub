@@ -8,14 +8,14 @@ import {
 } from "@chakra-ui/react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import coldGame from "../assets/coldGame.webp";
+import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
   const location = useLocation();
-  const isHomeActive = location.pathname === "/h";
-  const isCollectionActive = location.pathname === "/";
+  const isHomeActive = location.pathname === "/";
+  const isCollectionActive = location.pathname === "/collection";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,18 +44,26 @@ const Navbar = () => {
   return (
     <>
       <HStack className={styles.navbar}>
-        <HStack spacing="2">
-          <Image src={coldGame} boxSize="60px" />
-          <Text fontSize="xl" color="inherit" isTruncated>
-            JSverse
-          </Text>
-        </HStack>
+        <LinkBox as="div">
+          <LinkOverlay
+            as={Link}
+            to="/"
+            style={{
+              color: "inherit",
+            }}
+          >
+            <HStack spacing="2">
+              <Image src={logo} boxSize="60px" />
+              <Text fontSize="xl">JSverse</Text>
+            </HStack>
+          </LinkOverlay>
+        </LinkBox>
         <Spacer />
         <HStack spacing="5">
           <LinkBox as="div">
             <LinkOverlay
               as={Link}
-              to="/h"
+              to="/"
               style={{
                 color: "inherit",
               }}
@@ -66,12 +74,16 @@ const Navbar = () => {
                 _after={
                   isHomeActive
                     ? {
+                        background: "#FBC07A",
                         content: '""',
+                        width: "67px",
+                        height: "7px",
+                        display: "block",
                         position: "absolute",
-                        left: 0,
-                        right: 0,
-                        bottom: "-3px", // 调整这个值以改变下划线与文本的距离
-                        borderBottom: "1px solid currentColor",
+                        transform: "translate(-6px, -.1px)",
+                        zIndex: -2,
+                        borderRadius: "3px",
+                        opacity: 0.7,
                       }
                     : {}
                 }
@@ -85,7 +97,7 @@ const Navbar = () => {
           <LinkBox as="div">
             <LinkOverlay
               as={Link}
-              to="/"
+              to="/collection"
               style={{
                 color: "inherit",
               }}
@@ -96,12 +108,16 @@ const Navbar = () => {
                 _after={
                   isCollectionActive
                     ? {
+                        background: "#EFEA61",
                         content: '""',
+                        width: "156px",
+                        height: "7px",
+                        display: "block",
                         position: "absolute",
-                        left: 0,
-                        right: 0,
-                        bottom: "-3px", // 调整这个值以改变下划线与文本的距离
-                        borderBottom: "1px solid currentColor",
+                        transform: "translate(-6px, -.1px)",
+                        zIndex: -2,
+                        borderRadius: "3px",
+                        opacity: 0.7,
                       }
                     : {}
                 }

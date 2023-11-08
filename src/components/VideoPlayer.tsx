@@ -40,6 +40,7 @@ const VideoPlayer = ({ options, onReady }: Props) => {
 
   return (
     <>
+      {/* <button onClick={scrollToVideo}>Go to Video</button> */}
       <Box position="relative">
         <Flex
           justifyContent="center"

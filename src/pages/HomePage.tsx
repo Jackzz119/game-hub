@@ -3,7 +3,6 @@ import Head from "../components/Head";
 import cutes from "../assets/cutes.webp";
 import {
   Box,
-  Button,
   Image,
   Flex,
   Grid,
@@ -13,33 +12,55 @@ import {
   Avatar,
 } from "@chakra-ui/react";
 import VideoPlayer from "../components/VideoPlayer";
-import coldGame from "../assets/coldGame.webp";
+import logo from "../assets/logo.webp";
 import Carousel from "../components/Carousel";
 
 const HomePage = () => {
   const playerRef = useRef(null);
+  // const videoRef = useRef(null);
 
   const videoJsOptions = {
     autoplay: false,
     responsive: true,
     controls: true,
     fluid: true,
+    loop: true,
     aspectRatio: "16:9",
     // fill: true,
     currentWidth: 200,
-    poster: "//vjs.zencdn.net/v/oceans.png",
+    poster: "./src/assets/gameVideoCover.png",
     sources: [
       {
-        src: "//vjs.zencdn.net/v/oceans.mp4",
+        src: "./src/assets/gameVideo.mp4",
         type: "video/mp4",
       },
     ],
   };
 
+  // const scrollToVideo = () => {
+  //   if (videoRef.current) {
+  //     const topPos = 100;
+
+  //     window.scrollTo({
+  //       top: topPos,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // };
+
+  const scrollToVideo = () => {
+    const top = 1500;
+    console.log("scrolling!");
+
+    window.scrollTo({
+      top: top,
+      behavior: "smooth",
+    });
+  };
+
   const handlePlayerReady = (player: any) => {
     playerRef.current = player;
 
-    // You can handle player events here, for example:
     player.on("waiting", () => {
       console.log("player is waiting");
     });
@@ -105,9 +126,13 @@ const HomePage = () => {
             }}
           ></Box>
         </Box>
-        <Head />
+        <Head onButtonClick={scrollToVideo} />
         <Carousel />
-        <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
+        <VideoPlayer
+          options={videoJsOptions}
+          onReady={handlePlayerReady}
+          // ref={videoRef}
+        />
         <Box height="900px"></Box>
         <Text
           textAlign="center"
@@ -128,7 +153,7 @@ const HomePage = () => {
         </Flex>
         <Flex justifyContent="space-around" paddingTop={10}>
           <HStack>
-            <Image src={coldGame} boxSize="60px" />
+            <Image src={logo} boxSize="60px" />
             <Text fontSize="xl" color="inherit" isTruncated>
               JSverse
             </Text>
