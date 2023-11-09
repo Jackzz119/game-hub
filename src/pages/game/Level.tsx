@@ -9,7 +9,14 @@ const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 const floor1Material = new THREE.MeshStandardMaterial({ color: "limegreen" });
 const floor2Material = new THREE.MeshStandardMaterial({ color: "greenyellow" });
 const obstacleMaterial = new THREE.MeshStandardMaterial({ color: "orangered" });
-const wallMaterial = new THREE.MeshStandardMaterial({ color: "slategrey" });
+const wallMaterial = new THREE.MeshStandardMaterial({
+  color: "blue",
+
+  opacity: 0.1,
+  transparent: true,
+  roughness: 0,
+  vertexColors: true,
+});
 
 export function BlockStart({ position = vec3({ x: 0, y: 0, z: 0 }) }) {
   return (

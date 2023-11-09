@@ -20,8 +20,8 @@ const Head = ({ onButtonClick }: Props) => {
     <Box>
       <Grid
         paddingTop={180}
-        paddingRight={270}
-        paddingLeft={450}
+        paddingRight="10%"
+        paddingLeft="20%"
         templateRows="repeat(2, 1fr)"
         templateColumns="repeat(5, 1fr)"
         gap={3}
@@ -37,7 +37,7 @@ const Head = ({ onButtonClick }: Props) => {
           <ThreeCube />
         </GridItem>
 
-        <GridItem rowSpan={1} colSpan={2}>
+        <GridItem width="630px" rowSpan={1} colSpan={2}>
           <Text fontSize="xl" letterSpacing={1} marginTop={-6}>
             Dive into my world of JS games, where creativity meets logic, and
             every line of code tells a story. Join me on a coding adventure,
