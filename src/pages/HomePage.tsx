@@ -14,6 +14,7 @@ import {
 import VideoPlayer from "../components/VideoPlayer";
 import logo from "../assets/logo.webp";
 import Carousel from "../components/Carousel";
+import avatar from "../assets/avatar.webp";
 
 const HomePage = () => {
   const playerRef = useRef(null);
@@ -51,6 +52,15 @@ const HomePage = () => {
   const scrollToVideo = () => {
     const top = 1500;
     console.log("scrolling!");
+
+    window.scrollTo({
+      top: top,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToTop = () => {
+    const top = 0;
 
     window.scrollTo({
       top: top,
@@ -136,26 +146,38 @@ const HomePage = () => {
         <Box height="900px"></Box>
         <Flex justifyContent="center">
           <Box width={470}>
-            <Text textAlign="center" lineHeight={10} fontSize="2xl" margin={10}>
-              “Thank you for making the playlist for these HTML5 Canvas courses.
-              The BEST break down I've seen so far! You explain the reasoning
-              behind the code so clear. Your website is amazing!”
+            <Text
+              textAlign="center"
+              lineHeight="50px"
+              fontStyle="italic"
+              fontSize="2xl"
+              margin={10}
+            >
+              "Thanks for playing through to the end! Remember, like any good
+              game, our site gets better with every visit. Game on and high
+              scores to you, player!"
             </Text>
           </Box>
         </Flex>
         <Flex justifyContent="center">
-          <Avatar name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
+          <Avatar name="Cheng Zheng" src={avatar} />
           <Text textAlign="center" paddingX={35} lineHeight={10} fontSize="2xl">
-            Cheng Zheng
+            Cheng Zheng{" "}
+            <span style={{ color: "rgb(156, 37, 212)", fontStyle: "bold" }}>
+              /
+            </span>{" "}
+            Developer
           </Text>
         </Flex>
         <Flex justifyContent="space-around" paddingTop={10}>
-          <HStack>
-            <Image src={logo} boxSize="60px" />
-            <Text fontSize="xl" color="inherit" isTruncated>
-              JSverse
-            </Text>
-          </HStack>
+          <button onClick={scrollToTop}>
+            <HStack>
+              <Image src={logo} boxSize="60px" />
+              <Text fontSize="xl" color="inherit" isTruncated>
+                JSverse
+              </Text>
+            </HStack>
+          </button>
           <Grid
             h="200px"
             w="400px"
@@ -168,21 +190,41 @@ const HomePage = () => {
                 Email:
               </Text>
             </GridItem>
-            <GridItem rowSpan={1} colSpan={3} bg="tomato" />
+            <GridItem rowSpan={1} colSpan={3}>
+              <Text textAlign={"center"} transform="translateY(50%)">
+                jackzhenghw@gmail.com
+              </Text>
+            </GridItem>
             <GridItem rowSpan={1} colSpan={2}>
               <Text textAlign={"center"} transform="translateY(50%)">
                 Tel:
               </Text>
             </GridItem>
-            <GridItem rowSpan={1} colSpan={3} bg="tomato" />
+            <GridItem rowSpan={1} colSpan={3}>
+              <Text textAlign={"center"} transform="translateY(50%)">
+                216-421-5176
+              </Text>
+            </GridItem>
             <GridItem rowSpan={1} colSpan={2}>
               <Text textAlign={"center"} transform="translateY(50%)">
                 LinkedIn:
               </Text>
             </GridItem>
-            <GridItem rowSpan={1} colSpan={3} bg="tomato" />
+            <GridItem rowSpan={1} colSpan={3}>
+              <a href="https://www.linkedin.com/in/cheng-zheng-7ab763279/">
+                <Text textAlign={"center"} transform="translateY(50%)">
+                  Linkedin profile
+                </Text>
+              </a>
+            </GridItem>
           </Grid>
         </Flex>
+        <Box>
+          <Text textAlign="center" opacity=".5">
+            © 2023 JS game Portfolio. All rights reserved.
+          </Text>
+        </Box>
+        <Box height="20px"></Box>
       </Box>
     </>
   );
