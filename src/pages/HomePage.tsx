@@ -28,10 +28,10 @@ const HomePage = () => {
     aspectRatio: "16:9",
     // fill: true,
     currentWidth: 200,
-    poster: "./src/assets/gameVideoCover.png",
+    poster: "/gameVideoCover.png",
     sources: [
       {
-        src: "./src/assets/gameVideo.mp4",
+        src: "/gameVideo.mp4",
         type: "video/mp4",
       },
     ],
