@@ -15,7 +15,7 @@ export default function Experience() {
       {/* <color args={["#bdedfc"]} attach="background" /> */}
       <Environment
         files={"Sky.hdr"}
-        // path={"/Sky_trim/"}
+        path={"/Sky_trim/"}
         ground={{ height: 1, radius: 44, scale: 50 }}
       />
       <Physics debug={false}>

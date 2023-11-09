@@ -1,5 +1,5 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
-// import GameGrid from "../components/GameGrid";
+import GameGrid from "../components/GameGrid";
 import GenreList from "../components/GenreList";
 // import { Genre } from "../hooks/useGenres";
 // import { Platform } from "../hooks/useGames";
@@ -33,7 +33,7 @@ const GameCollection = () => {
         </GridItem>
       </Show>
       <GridItem area="main">
-        {/* <GameGrid gameQuery={gameQuery} /> */}
+        <GameGrid />
       </GridItem>
     </Grid>
   );
