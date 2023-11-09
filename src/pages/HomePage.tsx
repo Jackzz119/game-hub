@@ -136,7 +136,7 @@ const HomePage = () => {
         <Box height="900px"></Box>
         <Text
           textAlign="center"
-          paddingX={850}
+          paddingX="850px"
           lineHeight={10}
           fontSize="2xl"
           margin={10}
