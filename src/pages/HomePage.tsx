@@ -134,17 +134,15 @@ const HomePage = () => {
           // ref={videoRef}
         />
         <Box height="900px"></Box>
-        <Text
-          textAlign="center"
-          paddingX="850px"
-          lineHeight={10}
-          fontSize="2xl"
-          margin={10}
-        >
-          “Thank you for making the playlist for these HTML5 Canvas courses. The
-          BEST break down I've seen so far! You explain the reasoning behind the
-          code so clear. Your website is amazing!”
-        </Text>
+        <Flex justifyContent="center">
+          <Box width={470}>
+            <Text textAlign="center" lineHeight={10} fontSize="2xl" margin={10}>
+              “Thank you for making the playlist for these HTML5 Canvas courses.
+              The BEST break down I've seen so far! You explain the reasoning
+              behind the code so clear. Your website is amazing!”
+            </Text>
+          </Box>
+        </Flex>
         <Flex justifyContent="center">
           <Avatar name="Segun Adebayo" src="https://bit.ly/sage-adebayo" />
           <Text textAlign="center" paddingX={35} lineHeight={10} fontSize="2xl">
