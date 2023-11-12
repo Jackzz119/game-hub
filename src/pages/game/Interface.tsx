@@ -1,11 +1,9 @@
 import { useKeyboardControls } from "@react-three/drei";
 import useGame from "./stores/useGame.jsx";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { addEffect } from "@react-three/fiber";
-import { LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { LinkBox, LinkOverlay, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-// import { kv, createClient } from "@vercel/kv";
-// import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default function Interface() {
   const time = useRef<HTMLDivElement | null>(null);
@@ -19,25 +17,28 @@ export default function Interface() {
   const rightward = useKeyboardControls((state) => state.rightward);
   const jump = useKeyboardControls((state) => state.jump);
 
-  // const [highRecord, setHighRecord] = useState(null);
+  const [highScore, setHighScore] = useState(null);
   // const [percentage, setPercentage] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/updatescore")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setHighScore(data.highScore);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
+  }, []);
 
   // async function updateScore(timeRecord: Number) {
   // get the highest score, which is the shortest time record
   // ZRANGE scoreboard 0 0
-
-  //   const customKvClient = createClient({
-  //     url: process.env.REACT_APP_KV_REST_API_URL,
-  //     token: process.env.REACT_APP_KV_REST_API_TOKEN,
-  //     automaticDeserialization: false,
-  //   });
-  //   console.log(process.env.REACT_APP_KV_REST_API_URL);
-  //   console.log(process.env.REACT_APP_KV_REST_API_TOKEN);
-
-  //   const highestScore = await customKvClient.zrange("scoreboard", 0, 0, {
-  //     withScores: true,
-  //   });
-  //   console.log(highestScore);
 
   //   // get the stat that what percentage you won
   //   // ZCOUNT scoreboard 25 +inf
@@ -63,7 +64,18 @@ export default function Interface() {
 
         // const response = await updateScore(Number(timeRecord));
         // setPercentage(response.percentage);
-        // setHighRecord(response.highest);
+        // setHighScore(response.highest);
+        // fetch("/api/updatescore", {
+        //   method: "POST",
+        //   header: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({ scoreboard: elapsedTime }),
+        // })
+        //   .then((response) => response.json())
+        //   .then((data) => {
+        //     setHighScore(data.highScore);
+        //   });
       }
 
       elapsedTime /= 1000;
@@ -104,10 +116,10 @@ export default function Interface() {
           <div className="restart" onClick={restart}>
             Restart
           </div>
-          {/*<div className="win">
-            <Text textAlign="center">The hightest record is {highRecord}</Text>
-            <Text textAlign="center">You have won {percentage} %</Text>
-      </div>*/}
+          <div className="win">
+            <Text textAlign="center">The hightest record is {highScore}</Text>
+            {/* <Text textAlign="center">You have won {} %</Text> */}
+          </div>
         </div>
       )}
 
